@@ -1,5 +1,10 @@
 <script setup></script>
 
-<template></template>
+<template>
+  <div>
+    <RouterLink to="/"></RouterLink>
+    <RouterView />
+  </div>
+</template>
 
 <style scoped></style>

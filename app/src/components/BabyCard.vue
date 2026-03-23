@@ -1,12 +1,11 @@
 <template>
-  <router-link :to="bynamePath" class="card">
-    <h2>{{ props.baby.name }}</h2>
-    <h3>{{ props.id }}</h3>
-  </router-link>
+  <div class="card">
+    <h2>{{ babyname.name }}</h2>
+    <h3>{{ id }}</h3>
+  </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
 const props = defineProps({
   baby: {
     type: Object,
@@ -16,9 +15,6 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-})
-const bynamePath = computed(() => {
-  return `/by/${props.name.name}`
 })
 </script>
 
