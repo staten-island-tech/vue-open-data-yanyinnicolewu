@@ -11,7 +11,9 @@ import BabyCard from '../components/BabyCard.vue'
 const babyname = ref([])
 async function getBaby() {
   try {
-    const response = await fetch('https://data.cityofnewyork.us/resource/25th-nujf.json')
+    const response = await fetch(
+      'https://data.cityofnewyork.us/resource/25th-nujf.json?$limit=10&$offset=0',
+    )
     const data = await response.json()
     baby.value = data
   } catch (error) {

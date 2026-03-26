@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h2>{{ baby.name }}</h2>
+    <h1>{{ baby.name }}</h1>
+    <h2>{{ baby.gender }}</h2>
   </div>
 </template>
 
