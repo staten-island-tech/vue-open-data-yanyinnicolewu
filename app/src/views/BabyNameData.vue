@@ -11,7 +11,7 @@ const route = useRoute()
 const baby = ref(null)
 async function getBaby(id) {
   console.log('did i run?')
-  const response = await fetch('https://data.cityofnewyork.us/resource/25th-nujf.json/${id}')
+  const response = await fetch('https://data.cityofnewyork.us/resource/25th-nujf.json')
   const data = await response.json()
   baby.value = data
 }
