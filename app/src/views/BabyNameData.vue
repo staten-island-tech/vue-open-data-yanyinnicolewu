@@ -12,11 +12,19 @@ const route = useRoute()
 const baby = ref(null)
 async function getBaby(id) {
   console.log('did i run?')
-  const response = await fetch('https://data.cityofnewyork.us/resource/25th-nujf.json')
+  const response = await fetch('https://data.cityofnewyork.us/resource/25th-nujf.json/${id}')
   const data = await response.json()
   baby.value = data
 }
-watch()
+watch(
+  () => route.params.id,
+  function (id) {
+    getBaby(id)
+  },
+)
+onMounted(function () {
+  getBaby(route.params.id)
+})
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

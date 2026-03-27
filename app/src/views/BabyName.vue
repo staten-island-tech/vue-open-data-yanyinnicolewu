@@ -15,7 +15,7 @@ async function getBaby() {
       'https://data.cityofnewyork.us/resource/25th-nujf.json?$limit=10&$offset=0',
     )
     const data = await response.json()
-    baby.value = data
+    baby.value = data.results
   } catch (error) {
     console.log(error)
   }

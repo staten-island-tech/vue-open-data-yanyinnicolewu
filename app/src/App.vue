@@ -1,10 +1,11 @@
-<script setup></script>
-
 <template>
   <div>
-    <RouterLink to="/"></RouterLink>
+    <RouterLink to="/vue-lists"></RouterLink>
+
     <RouterView />
   </div>
 </template>
+
+<script setup></script>
 
 <style scoped></style>
