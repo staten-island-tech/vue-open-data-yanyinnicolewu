@@ -1,29 +1,24 @@
 <template>
   <router-link :to="babyPath" class="card">
-    <h2>{{ babyname.nm }}</h2>
-    <h3>{{ babyname.gndr }}</h3>
+    <h2>{{ baby.nm }}</h2>
+    <h3>{{ baby.gndr }}</h3>
+    <BabyMiniPieChart :id="baby.id" />
   </router-link>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import BabyMiniPieChart from './BabyMiniPieChart.vue'
+
 const props = defineProps({
-  babyname: {
-    type: Object,
-    required: true,
-  },
-  id: {
-    type: Number,
-    required: true,
-  },
-  babyData: {
+  baby: {
     type: Object,
     required: true,
   },
 })
 
 const babyPath = computed(() => {
-  return `/babyPath/${props.babyname.id}`
+  return `/babyPath/${props.baby.id}`
 })
 </script>
 

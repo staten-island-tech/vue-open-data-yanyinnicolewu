@@ -1,6 +1,6 @@
 <template>
   <div v-if="baby">
-    <BabyPieChart :babyData="baby" />
+    <BabyMiniPieChart :babyData="baby" />
     <h1>{{ baby.nm }}</h1>
     <h2>{{ baby.gndr }}</h2>
   </div>
