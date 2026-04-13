@@ -4,9 +4,9 @@
     <h2>{{ baby.gndr }}</h2>
 
     <p>Year: {{ baby.brth_yr }}</p>
-    <p>Race/Ethnicity:{{ baby.ethcty }}</p>
-    <p>Rank:{{ baby.rnk }}</p>
-    <p>Count:{{ baby.cnt }}</p>
+    <p>Race/Ethnicity: {{ baby.ethcty }}</p>
+    <p>Rank: {{ baby.rnk }}</p>
+    <p>Count: {{ baby.cnt }}</p>
   </div>
   <div v-else>Loading...</div>
 </template>
