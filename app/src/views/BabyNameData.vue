@@ -1,6 +1,5 @@
 <template>
-  <div v-if="baby">
-    <BabyMiniPieChart :babyData="baby" />
+  <div v-if="baby" class="card">
     <h1>{{ baby.nm }}</h1>
     <h2>{{ baby.gndr }}</h2>
   </div>
@@ -13,22 +12,23 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const baby = ref(null)
-async function getBaby(id) {
+
+async function getBaby(nm) {
   console.log('did i run?')
   const response = await fetch(
-    `https://data.cityofnewyork.us/resource/25th-nujf.json?$where=id='${id}'`,
+    `https://data.cityofnewyork.us/resource/25th-nujf.json?$where=id='${nm}'`,
   )
   const data = await response.json()
   baby.value = data[0]
 }
 watch(
-  () => route.params.id,
-  function (id) {
-    getBaby(id)
+  () => route.params.nm,
+  function (nm) {
+    getBaby(nm)
   },
 )
 onMounted(function () {
-  getBaby(route.params.id)
+  getBaby(route.params.nm)
 })
 </script>
 

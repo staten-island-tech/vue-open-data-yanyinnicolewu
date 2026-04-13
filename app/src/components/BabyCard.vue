@@ -2,13 +2,11 @@
   <router-link :to="babyPath" class="card">
     <h2>{{ baby.nm }}</h2>
     <h3>{{ baby.gndr }}</h3>
-    <BabyMiniPieChart :id="baby.id" />
   </router-link>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import BabyMiniPieChart from './BabyMiniPieChart.vue'
 
 const props = defineProps({
   baby: {
@@ -18,7 +16,7 @@ const props = defineProps({
 })
 
 const babyPath = computed(() => {
-  return `/babyPath/${props.baby.id}`
+  return `/babyPath/${props.baby.nm}`
 })
 </script>
 
