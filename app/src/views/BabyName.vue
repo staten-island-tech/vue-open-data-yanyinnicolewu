@@ -3,32 +3,26 @@
     <h1>NYC Baby Name Dashboard</h1>
 
     <div class="tabs">
+      <button @click="tab = 'home'">Home</button>
       <button @click="tab = 'race'">Race Distribution</button>
-      <button @click="tab = 'frequency'">Baby born each year</button>
+      <button @click="tab = 'year'">Babies Born Each Year</button>
       <button @click="tab = 'top'">Top Names</button>
     </div>
 
-    <div v-if="tab === 'cards'" class="container">
+    <div v-if="tab === 'home'" class="container">
       <BabyCard v-for="(baby, index) in babyname" :key="index" :baby="baby" />
     </div>
 
-    <!-- TAB 2: RACE CHART -->
     <div v-if="tab === 'race'">
       <RaceChart :data="babyname" />
     </div>
 
-    <!-- TAB 3: GENDER CHART -->
-    <div v-if="tab === 'gender'">
-      <GenderChart :data="babyname" />
+    <div v-if="tab === 'year'">
+      <BabiesByYear :data="babyname" />
     </div>
 
-    <!-- TAB 4: TOP NAMES -->
     <div v-if="tab === 'top'">
       <TopNamesChart :data="babyname" />
-    </div>
-
-    <div class="container">
-      <BabyCard v-for="(baby, index) in babyname" :key="index" :baby="baby" />
     </div>
   </div>
 </template>
@@ -36,13 +30,17 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import BabyCard from '../components/BabyCard.vue'
+import BabiesByYear from '@/components/charts/BabiesByYear.vue'
+import RaceChart from '@/components/charts/RaceChart.vue'
+import TopNamesChart from '@/components/charts/TopNamesChart.vue'
 
 const babyname = ref([])
+const tab = ref('home')
 
 async function getBaby() {
   try {
     const response = await fetch(
-      'https://data.cityofnewyork.us/resource/25th-nujf.json?$limit=100&$offset=0',
+      'https://data.cityofnewyork.us/resource/25th-nujf.json?$limit=10000&$offset=0',
     )
     const data = await response.json()
     babyname.value = data

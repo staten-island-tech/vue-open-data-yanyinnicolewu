@@ -23,7 +23,7 @@ const babyPath = computed(() => {
 <style scoped>
 .card {
   width: 28%;
-  height: 500px;
+  height: 250px;
   background-color: aliceblue;
   margin: 30px 0;
   display: flex;
